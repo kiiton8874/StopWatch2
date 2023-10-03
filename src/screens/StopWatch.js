@@ -1,12 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Timer from '../components/timer';
 import RoundButton from '../components/roundButton';
 import LapsTable from '../components/lapstable';
 import ButtonsRow from '../components/buttonsRow';
 import LapDisplay from '../components/lapdisplay';
+import CircleButton from '../components/CircleButton';
+
+// import { collection, addDoc } from 'firebase/firestore';
+// import { auth, db } from '../utils/firebase';
+
+// const handlePress = () => {
+//   const ref = db.collection('Lap');
+//   ref.add({
+//     bodyText: 'Hello',
+//   })
+//     .then((docRef) => {
+//       console.log('Created!', docRef.data());
+//     })
+//     .catch((error) => {
+//       console.log('Error!', error);
+//     });
+// }
 
 export default class StopWatch extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -77,6 +95,12 @@ export default class StopWatch extends Component {
     const timer = now - start
     return (
       <View style={styles.container}>
+        <CircleButton
+          title='Save'
+          color='#ffffff'
+          background='blue'
+          onPress={() => {}}
+        />
         <Text style={styles.spritText}>Sprit</Text>
         <Timer
           interval={laps.reduce((total, curr) => total + curr, 0) + timer}

@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 
+import { auth } from "../utils/firebase";
+
 import Button from "../components/button";
 
 export default function LogInScreen(props) {
   const { navigation } = props;
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+
+  // function handlePress() {
+    
+  // }
+
   return (
     <View style={styles.container}>
       <View>

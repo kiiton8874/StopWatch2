@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, Alert } from 'react-native';
+// import { getAuth, signInAnonymously } from 'firebase/auth';
+
+import { auth } from "../utils/firebase";
 
 import Button from "../components/button";
 
@@ -7,6 +10,19 @@ export default function SignUpScreen(props) {
   const { navigation } = props;
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+
+  // function handlePress() {
+  //   signInAnonymously(auth)
+  //     .then((userCredential) => {
+  //       const user = userCredential.user;
+  //       console.log(user.uid);
+  //       navigation.reset({
+  //       index: 0,
+  //       routes: [{ name: 'StopWatch'}],
+  //       });
+  //    });
+  // }
+
   return (
     <View style={styles.container}>
       <View>
@@ -30,11 +46,8 @@ export default function SignUpScreen(props) {
         />
       </View>
       <Button
-        label='ログイン'
-        onPress={() => { navigation.reset({
-          index: 0,
-          routes: [{ name: 'StopWatch'}],
-        }); }}
+        label='登録'
+        onPress={handlePress}
       />
     </View>
   );
